@@ -64,7 +64,7 @@
                             <td class="px-4 py-3 text-slate-600">{{ collect([$s->nama_ayah, $s->nama_ibu])->filter()->implode(' / ') ?: '-' }}</td>
                             <td class="px-4 py-3">{{ $s->kelas?->nama_rombel ?? '-' }}</td>
                             <td class="px-4 py-3 text-right">
-                                <a href="{{ route('siswa.show', $s) }}" class="text-xs font-medium text-indigo-600 hover:underline">Detail</a>
+                                <x-action-button :href="route('siswa.show', $s)" icon="eye">Detail</x-action-button>
                             </td>
                         </tr>
                     @empty

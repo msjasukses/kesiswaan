@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout heading="Atur Ulang Password" subheading="Buat password baru untuk akun Anda.">
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 

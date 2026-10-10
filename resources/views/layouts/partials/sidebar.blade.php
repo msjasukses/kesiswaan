@@ -10,7 +10,7 @@
         ? 'block px-3 py-2 rounded-lg text-sm font-medium bg-indigo-600 text-white'
         : 'block px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-slate-800 hover:text-white';
 
-    $gMaster = request()->routeIs('kelas.*', 'siswa.*', 'guru.*', 'buku-klaper.*');
+    $gMaster = request()->routeIs('kelas.*', 'siswa.*', 'guru.*', 'buku-klaper.*', 'buku-induk.*');
     $gPelanggaran = request()->routeIs('jenis-pelanggaran.*', 'data-pelanggaran.*', 'pelanggaran.*');
     $gKesiswaan = request()->routeIs('program-kerja.*', 'ekstrakurikuler.*', 'jurnal-ekstrakurikuler.*', 'laporan-jurnal-ekstrakurikuler.*', 'guru-wali.*', 'aktivitas-guru-wali.*', 'laporan-aktivitas-guru-wali.*', 'prestasi.*');
     $gPengaturan = request()->routeIs('setelan.*', 'akun.*');
@@ -53,6 +53,7 @@
                 <a href="{{ route('siswa.index') }}" class="{{ $subItem(request()->routeIs('siswa.*')) }}">Data Siswa</a>
                 <a href="{{ route('guru.index') }}" class="{{ $subItem(request()->routeIs('guru.*')) }}">Data Guru</a>
                 <a href="{{ route('buku-klaper.index') }}" class="{{ $subItem(request()->routeIs('buku-klaper.*')) }}">Buku Klaper</a>
+                <a href="{{ route('buku-induk.index') }}" class="{{ $subItem(request()->routeIs('buku-induk.*')) }}">Buku Induk</a>
             </div>
         </div>
 

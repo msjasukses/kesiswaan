@@ -41,7 +41,7 @@
                             <td class="px-5 py-3 text-slate-500">{{ $g->mataPelajaran?->nama_mapel ?? '-' }}</td>
                             <td class="px-5 py-3"><x-badge :color="$g->is_aktif ? 'green' : 'slate'">{{ $g->is_aktif ? 'Aktif' : 'Nonaktif' }}</x-badge></td>
                             <td class="px-5 py-3 text-right">
-                                <a href="{{ route('guru.show', $g) }}" class="text-xs font-medium text-indigo-600 hover:underline">Detail</a>
+                                <x-action-button :href="route('guru.show', $g)" icon="eye">Detail</x-action-button>
                             </td>
                         </tr>
                     @empty

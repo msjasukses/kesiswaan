@@ -44,6 +44,12 @@
                             <option value="{{ $sem }}" @selected(old('semester', $settings['semester'] ?? '') === $sem)>{{ $sem }}</option>
                         @endforeach
                     </x-select>
+                    <x-select name="kurikulum_default" label="Kurikulum Default Buku Induk"
+                        help="Dipakai untuk siswa yang belum diatur kurikulumnya pada buku induk.">
+                        @foreach (config('buku_induk.kurikulum') as $kode => $label)
+                            <option value="{{ $kode }}" @selected(old('kurikulum_default', $settings['kurikulum_default'] ?? config('buku_induk.default_kurikulum')) === $kode)>{{ $label }}</option>
+                        @endforeach
+                    </x-select>
                 </div>
             </x-card>
 

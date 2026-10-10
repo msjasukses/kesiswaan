@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AktivitasGuruWaliController;
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\BukuIndukController;
+use App\Http\Controllers\BukuIndukSemesterController;
 use App\Http\Controllers\BukuKlaperController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataPelanggaranController;
@@ -16,6 +18,7 @@ use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\GuruWaliController;
+use App\Http\Controllers\ImportRaporController;
 use App\Http\Controllers\ProgramKerjaController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SiswaController;
@@ -36,6 +39,23 @@ Route::middleware(['auth'])->group(function () {
     // Buku Klaper (register siswa alfabetis)
     Route::get('buku-klaper', [BukuKlaperController::class, 'index'])->name('buku-klaper.index');
     Route::get('buku-klaper/export/{format}', [BukuKlaperController::class, 'export'])->name('buku-klaper.export');
+
+    // Buku Induk Siswa (format Kurikulum 2013 / Kurikulum Merdeka)
+    Route::get('buku-induk', [BukuIndukController::class, 'index'])->name('buku-induk.index');
+    Route::get('buku-induk/export/{format}', [BukuIndukController::class, 'export'])->name('buku-induk.export');
+    // Import nilai rapor (didaftarkan sebelum buku-induk/{siswa} agar "import" tidak dianggap id siswa)
+    Route::get('buku-induk/import', [ImportRaporController::class, 'index'])->name('buku-induk.import');
+    Route::get('buku-induk/import/template', [ImportRaporController::class, 'template'])->name('buku-induk.import.template');
+    Route::post('buku-induk/import', [ImportRaporController::class, 'store'])->name('buku-induk.import.store');
+    Route::get('buku-induk/{siswa}', [BukuIndukController::class, 'show'])->name('buku-induk.show');
+    Route::get('buku-induk/{siswa}/edit', [BukuIndukController::class, 'edit'])->name('buku-induk.edit');
+    Route::put('buku-induk/{siswa}', [BukuIndukController::class, 'update'])->name('buku-induk.update');
+    Route::get('buku-induk/{siswa}/pdf', [BukuIndukController::class, 'pdf'])->name('buku-induk.pdf');
+    Route::get('buku-induk/{siswa}/semester/create', [BukuIndukSemesterController::class, 'create'])->name('buku-induk.semester.create');
+    Route::post('buku-induk/{siswa}/semester', [BukuIndukSemesterController::class, 'store'])->name('buku-induk.semester.store');
+    Route::get('buku-induk/{siswa}/semester/{semester}/edit', [BukuIndukSemesterController::class, 'edit'])->name('buku-induk.semester.edit');
+    Route::put('buku-induk/{siswa}/semester/{semester}', [BukuIndukSemesterController::class, 'update'])->name('buku-induk.semester.update');
+    Route::delete('buku-induk/{siswa}/semester/{semester}', [BukuIndukSemesterController::class, 'destroy'])->name('buku-induk.semester.destroy');
 
     // Export Excel / Word / PDF ({format} = excel|word|pdf)
     Route::get('siswa/export/{format}', [SiswaController::class, 'export'])->name('siswa.export');

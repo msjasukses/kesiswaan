@@ -3,11 +3,12 @@
 @section('title', 'Detail Siswa')
 
 @section('content')
-    <div class="mb-5">
+    <div class="flex items-center justify-between mb-5">
         <a href="{{ route('siswa.index') }}" class="inline-flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-slate-700">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             Kembali
         </a>
+        <a href="{{ route('buku-induk.show', $siswa) }}" class="px-4 py-2 text-sm font-medium border rounded-lg text-slate-600 border-slate-300 hover:bg-slate-50">Buku Induk</a>
     </div>
 
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">

@@ -11,7 +11,7 @@ class SettingController extends Controller
     /** Daftar key setelan yang dikelola. */
     private array $keys = [
         'nama_sekolah', 'npsn', 'alamat', 'telepon', 'email', 'website',
-        'kepala_sekolah', 'nip_kepala_sekolah', 'tahun_ajaran', 'semester',
+        'kepala_sekolah', 'nip_kepala_sekolah', 'tahun_ajaran', 'semester', 'kurikulum_default',
     ];
 
     public function edit()
@@ -34,6 +34,7 @@ class SettingController extends Controller
             'nip_kepala_sekolah' => ['nullable', 'string', 'max:50'],
             'tahun_ajaran' => ['nullable', 'string', 'max:20'],
             'semester' => ['nullable', 'in:Ganjil,Genap'],
+            'kurikulum_default' => ['nullable', 'in:' . implode(',', array_keys(config('buku_induk.kurikulum')))],
             'logo' => ['nullable', 'image', 'max:2048'],
         ]);
 

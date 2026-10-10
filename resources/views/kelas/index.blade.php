@@ -36,7 +36,7 @@
                             <td class="px-5 py-3">{{ $k->waliKelas?->nama_ptk ?? '-' }}</td>
                             <td class="px-5 py-3 text-center"><x-badge color="blue">{{ $k->siswa_count }}</x-badge></td>
                             <td class="px-5 py-3 text-right">
-                                <a href="{{ route('kelas.show', $k) }}" class="text-xs font-medium text-indigo-600 hover:underline">Lihat Anggota</a>
+                                <x-action-button :href="route('kelas.show', $k)" icon="users">Lihat Anggota</x-action-button>
                             </td>
                         </tr>
                     @empty

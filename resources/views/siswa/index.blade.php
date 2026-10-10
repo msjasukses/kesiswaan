@@ -59,7 +59,7 @@
                             </td>
                             <td class="px-5 py-3"><x-badge :color="$statusColor">{{ $s->status_siswa }}</x-badge></td>
                             <td class="px-5 py-3 text-right">
-                                <a href="{{ route('siswa.show', $s) }}" class="text-xs font-medium text-indigo-600 hover:underline">Detail</a>
+                                <x-action-button :href="route('siswa.show', $s)" icon="eye">Detail</x-action-button>
                             </td>
                         </tr>
                     @empty

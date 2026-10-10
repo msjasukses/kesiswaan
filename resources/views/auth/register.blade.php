@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout heading="Daftar Akun" subheading="Buat akun baru untuk mengakses aplikasi.">
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
